@@ -20,3 +20,7 @@ function computerPlay() {
     return choice;
 }
 
+function getPlayerSelection() {
+    let playerChoice = prompt("Enter your selection:").toLowerCase()
+    return playerChoice;
+}
