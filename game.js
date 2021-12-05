@@ -24,3 +24,10 @@ function getPlayerSelection() {
     let playerChoice = prompt("Enter your selection:").toLowerCase()
     return playerChoice;
 }
+
+function playRound(playerSelection, computerSelection) {
+    if ( playerSelection === "rock" && computerSelection === "scissors")
+    {
+        return "You Lose! Rock beats scissors"
+    }
+}
