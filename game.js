@@ -26,8 +26,18 @@ function getPlayerSelection() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if ( playerSelection === "rock" && computerSelection === "scissors")
+    if ( (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === 'scissors' && computerSelection === 'paper') )
     {
-        return "You Lose! Rock beats scissors"
+        return `You win! ${playerSelection} beats ${computerSelection}`
+    }
+    else if ( (playerSelection === "rock" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock"))
+    {
+        return `You lose! ${computerSelection} beats ${playerSelection}`
+    }
+    else if (playerSelection === computerSelection)
+    {
+        return 'Its a tie!'
     }
 }
+
+console.log(playRound('paper','rock'))
