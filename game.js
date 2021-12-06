@@ -21,18 +21,19 @@ function computerPlay() {
 }
 
 function getPlayerSelection() {
-    let playerChoice = prompt("Enter your selection:").toLowerCase()
-    return playerChoice;
+    let playerChoice = prompt("Enter your selection:");
+    return playerChoice.toLowerCase();
 }
 
 function playRound(playerSelection, computerSelection) {
     if ( (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === 'scissors' && computerSelection === 'paper') )
     {
-        return `You win! ${playerSelection} beats ${computerSelection}`
+        console.log(`You win! ${playerSelection} beats ${computerSelection}`)
+        return true;
     }
     else if ( (playerSelection === "rock" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock"))
     {
-        return `You lose! ${computerSelection} beats ${playerSelection}`
+        console.log(`You lose! ${computerSelection} beats ${playerSelection}`)
     }
     else if (playerSelection === computerSelection)
     {
@@ -40,4 +41,14 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-console.log(playRound('paper','rock'))
+
+function game() {
+    let numGames = 5;
+    let counter = 0;
+    while (numGames < 5){
+        let player = getPlayerSelection();
+        playRound(player, computerPlay())
+
+    }
+
+}
