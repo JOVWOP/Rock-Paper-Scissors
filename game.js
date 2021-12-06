@@ -34,21 +34,46 @@ function playRound(playerSelection, computerSelection) {
     else if ( (playerSelection === "rock" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock"))
     {
         console.log(`You lose! ${computerSelection} beats ${playerSelection}`)
+        return false;
     }
     else if (playerSelection === computerSelection)
     {
-        return 'Its a tie!'
+        console.log('Its a tie!')
     }
 }
 
 
 function game() {
     let numGames = 5;
-    let counter = 0;
-    while (numGames < 5){
+    let counter = 1;
+    let playerCount = 0;
+    let computerCount = 0;
+
+    while (counter <= numGames) {
         let player = getPlayerSelection();
-        playRound(player, computerPlay())
+        let result = playRound(player, computerPlay());
+    
+        if (result === true) {
+            playerCount++;
+        }
+        else if (result === false) {
+            computerCount++;
+        }
+        console.log(`Round: ${counter} Score: Player: ${playerCount} Computer: ${computerCount}`)
+        counter++;
+    }
+    if (playerCount > computerCount) {
+        console.log("Player wins!")
+    }
+    else if (playerCount < computerCount) {
+        console.log("Computer wins!")
+    }
+    else {
+        console.log("Tie game!")
+    }
+
+
 
     }
 
-}
+game();
