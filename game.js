@@ -21,8 +21,13 @@ function computerPlay() {
 }
 
 function getPlayerSelection() {
-    let playerChoice = prompt("Enter your selection:");
-    return playerChoice.toLowerCase();
+    let playerChoice;
+    do {
+        playerChoice = prompt("Enter your selection:").toLowerCase();
+    }
+    while (playerChoice != "rock" && playerChoice !="paper" && playerChoice !="scissors")
+ 
+    return playerChoice;
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -59,7 +64,7 @@ function game() {
         else if (result === false) {
             computerCount++;
         }
-        console.log(`Round: ${counter} Score: Player: ${playerCount} Computer: ${computerCount}`)
+        console.log(`Round: ${counter}\nScore: Player: ${playerCount} Computer: ${computerCount}`)
         counter++;
     }
     if (playerCount > computerCount) {
