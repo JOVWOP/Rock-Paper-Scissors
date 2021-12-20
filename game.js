@@ -6,18 +6,16 @@ function getRandomNum() {
 
 function computerPlay() {
     let randomNumber = getRandomNum();
-    let choice = "";
 
     if (randomNumber === 0) {
-        choice = "rock"
+        return "rock"
     }
     else if (randomNumber === 1) {
-        choice = "paper"
+        return "paper"
     }
     else {
-        choice = "scissors";
+        return "scissors";
     }
-    return choice;
 }
 
 function getPlayerSelection() {
@@ -33,17 +31,17 @@ function getPlayerSelection() {
 function playRound(playerSelection, computerSelection) {
     if ( (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === 'scissors' && computerSelection === 'paper') )
     {
-        console.log(`You win! ${playerSelection} beats ${computerSelection}`)
+        alert(`You win! ${playerSelection} beats ${computerSelection}`)
         return true;
     }
     else if ( (playerSelection === "rock" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock"))
     {
-        console.log(`You lose! ${computerSelection} beats ${playerSelection}`)
+        alert(`You lose! ${computerSelection} beats ${playerSelection}`)
         return false;
     }
     else if (playerSelection === computerSelection)
     {
-        console.log('Its a tie!')
+        alert('Its a tie!')
     }
 }
 
@@ -64,21 +62,18 @@ function game() {
         else if (result === false) {
             computerCount++;
         }
-        console.log(`Round: ${counter}\nScore: Player: ${playerCount} Computer: ${computerCount}`)
+        alert(`Round: ${counter}\nScore: Player: ${playerCount} Computer: ${computerCount}`)
         counter++;
     }
     if (playerCount > computerCount) {
-        console.log("Player wins!")
+        alert("Player wins!")
     }
     else if (playerCount < computerCount) {
-        console.log("Computer wins!")
+        alert("Computer wins!")
     }
     else {
-        console.log("Tie game!")
+        alert("Tie game!")
     }
-
-
-
     }
 
 game();
