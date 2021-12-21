@@ -7,6 +7,14 @@ function getRandomNum() {
 }
 let playerCount = 0;
 let computerCount = 0;
+let round = 0;
+
+function displayRound() {
+    round++
+    console.log(round)
+    const roundCounter = document.querySelector('.round')
+    roundCounter.textContent = `Round: ${round}`
+}
 
 function playRound() {
     const playerSelection = this.value;
@@ -19,6 +27,7 @@ function playRound() {
         const playerScore = document.querySelector('.playerScore');
         displayPara.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
         playerCount++
+
         playerScore.textContent = `Player Score: ${playerCount}`
     }
     else if ( (playerSelection === "rock" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock"))
@@ -26,12 +35,16 @@ function playRound() {
         const computerScore = document.querySelector('.computerScore');
         displayPara.textContent =`You lose! ${computerSelection} beats ${playerSelection}`;
         computerCount++
+
         computerScore.textContent = `Computer Score: ${computerCount}`
     }
     else 
     {
         displayPara.textContent = "It's a tie"
     }
+
+    displayRound()
+
 
 }
 
