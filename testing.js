@@ -1,6 +1,8 @@
 const buttons = Array.from(document.querySelectorAll('button'));
 const displayPara = document.querySelector('.result')
 const playerScore = document.querySelector('.playerScore');
+const winner = document.querySelector('.winner')
+const container = document.querySelector('.container')
 
 function getRandomNum() {
     return Math.floor(Math.random() * 3);
@@ -9,11 +11,14 @@ let playerCount = 0;
 let computerCount = 0;
 let round = 0;
 
-function displayRound() {
-    round++
-    console.log(round)
-    const roundCounter = document.querySelector('.round')
-    roundCounter.textContent = `Round: ${round}`
+function displayWinner(player1, player2) {
+    container.classList.add('btn-disable')
+    if (player1 > player2) {
+        winner.textContent = 'You won!'
+    }
+    else if (player2 > player1) {
+        winner.textContent = "You lost"
+    }
 }
 
 function playRound() {
@@ -21,11 +26,10 @@ function playRound() {
     const computerSelection = computerPlay();
 
 
-
     if ( (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === 'scissors' && computerSelection === 'paper') )
     {
         const playerScore = document.querySelector('.playerScore');
-        displayPara.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
+        displayPara.textContent = `You win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}`;
         playerCount++
 
         playerScore.textContent = `Player Score: ${playerCount}`
@@ -33,7 +37,7 @@ function playRound() {
     else if ( (playerSelection === "rock" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock"))
     {
         const computerScore = document.querySelector('.computerScore');
-        displayPara.textContent =`You lose! ${computerSelection} beats ${playerSelection}`;
+        displayPara.textContent =`You lose! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}`;
         computerCount++
 
         computerScore.textContent = `Computer Score: ${computerCount}`
@@ -43,12 +47,18 @@ function playRound() {
         displayPara.textContent = "It's a tie"
     }
 
-    displayRound()
+    if (playerCount === 5 || computerCount === 5) {
+        displayWinner(playerCount, computerCount)
+    }
 
 
 }
 
 
+
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 
 function computerPlay() {
     let randomNumber = getRandomNum();
