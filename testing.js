@@ -1,35 +1,41 @@
 const buttons = Array.from(document.querySelectorAll('button'));
 const displayPara = document.querySelector('.result')
 const playerScore = document.querySelector('.playerScore');
-const computerScore
 
 function getRandomNum() {
     return Math.floor(Math.random() * 3);
 }
+let playerCount = 0;
+let computerCount = 0;
 
 function playRound() {
     const playerSelection = this.value;
     const computerSelection = computerPlay();
-    const playerCount = 0;
-    const computerCount = 0;
+
 
 
     if ( (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === 'scissors' && computerSelection === 'paper') )
     {
         const playerScore = document.querySelector('.playerScore');
         displayPara.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
+        playerCount++
+        playerScore.textContent = `Player Score: ${playerCount}`
     }
     else if ( (playerSelection === "rock" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock"))
     {
         const computerScore = document.querySelector('.computerScore');
         displayPara.textContent =`You lose! ${computerSelection} beats ${playerSelection}`;
-
+        computerCount++
+        computerScore.textContent = `Computer Score: ${computerCount}`
     }
     else 
     {
         displayPara.textContent = "It's a tie"
     }
+
 }
+
+
 
 function computerPlay() {
     let randomNumber = getRandomNum();
