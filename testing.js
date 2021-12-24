@@ -4,7 +4,7 @@ let computerCount = 0;
 const buttons = Array.from(document.querySelectorAll('button'));
 const displayPara = document.querySelector('.result')
 const playerScore = document.querySelector('.playerScore');
-const winner = document.querySelector('.winner');
+const winner = document.querySelector('#winner');
 const container = document.querySelector('.container');
 const textColor = document.querySelector('.header');
 const playerImage = document.querySelector('.player-image');
@@ -21,7 +21,7 @@ function displayWinner(player1, player2) {
         winner.textContent = 'You won!'
     }
     else if (player2 > player1) {
-        winner.textContent = "You lost"
+        winner.textContent = "You lost."
     }
 }
 
