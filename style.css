@@ -23,10 +23,12 @@ body {
 /* Header section */
 
 .header {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0px;
+    font-size: 32px;
     font-family: 'Archivo', sans-serif;
-    padding: 0px 45px 45px 45px;
-    font-size: 40px;
 }
 
 /* Instructions for the game */
@@ -36,12 +38,12 @@ body {
 }
 
 .instructions h2 {
-    font-size: 40px;
+    font-size: 32px;
     margin-bottom: 5px;
 }
 
 .instructions h3 {
-    font-size: 39px;
+    font-size: 20px;
 }
 
 /* Display winner or loser of the round. */
@@ -57,21 +59,13 @@ body {
 .players-selection {
     display: flex;
     justify-content: center;
+    align-items: center;
     text-align: center;
-    gap: 350px;
     font-size: 25px;
 }
 
 
-
-
-
-
-.btn-disable
-        {
-        cursor: not-allowed;
-        pointer-events: none;
-        }
+/* Container for the buttons to be together side by side */
 
 .container {
     /* full-sized container that fills up the page */
@@ -84,10 +78,36 @@ body {
     width: 135px;
 }
 
-button {
+.players-selection div {
+    margin: 0 auto;
+}
+
+
+/* css for the players button to click on */
+
+.players-selection button {
     background: none;
     border: none;
 }
+
+.players-selection button:hover {
+    cursor: pointer;
+    background: rgb(81 243 81);
+    border-radius: 5px;
+ }
+
+
+
+
+.btn-disable
+        {
+        cursor: not-allowed;
+        pointer-events: none;
+        }
+
+
+
+
 
 #winner {
     font-size: 50px;
