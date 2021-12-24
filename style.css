@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,900&display=swap');
+
 html,
 body {
     margin: 0;
@@ -7,12 +9,40 @@ body {
 body {
     height: 100vh;
     width: 100vw;
+    color: white;
+    background: black;
 }
 
 /* include border and padding in element width and height */
 * {
     box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
+
+.header {
+    text-align: center;
+    font-family: 'Archivo', sans-serif;
+    padding: 50px;
+    font-size: 40px;
+    background: black;
+}
+
+.instructions {
+    text-align: center;
+}
+
+.instructions h2 {
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.instructions h3 {
+    font-size: 39px;
+}
+
+.instructions 
+
 
 .btn-disable
         {

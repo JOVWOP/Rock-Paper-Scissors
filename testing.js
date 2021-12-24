@@ -1,8 +1,9 @@
 const buttons = Array.from(document.querySelectorAll('button'));
 const displayPara = document.querySelector('.result')
 const playerScore = document.querySelector('.playerScore');
-const winner = document.querySelector('.winner')
-const container = document.querySelector('.container')
+const winner = document.querySelector('.winner');
+const container = document.querySelector('.container');
+const textColor = document.querySelector('.header');
 
 function getRandomNum() {
     return Math.floor(Math.random() * 3);
@@ -50,9 +51,21 @@ function playRound() {
     if (playerCount === 5 || computerCount === 5) {
         displayWinner(playerCount, computerCount)
     }
-
-
 }
+
+textColor.style.color = "rgb(73, 251, 53)";
+
+function colorChange() {
+    if (textColor.style.color === 'rgb(73, 251, 53)') {
+        textColor.style.color = 'white';
+    }
+    else {
+        textColor.style.color = "rgb(73, 251, 53)";
+    }
+}
+
+setInterval(colorChange, 1000);
+
 
 
 
