@@ -1,16 +1,19 @@
+let playerCount = 0;
+let computerCount = 0;
+
 const buttons = Array.from(document.querySelectorAll('button'));
 const displayPara = document.querySelector('.result')
 const playerScore = document.querySelector('.playerScore');
 const winner = document.querySelector('.winner');
 const container = document.querySelector('.container');
 const textColor = document.querySelector('.header');
+const playerImage = document.querySelector('.player-image');
+const computerImage = document.querySelector('.computer-image')
 
 function getRandomNum() {
     return Math.floor(Math.random() * 3);
 }
-let playerCount = 0;
-let computerCount = 0;
-let round = 0;
+
 
 function displayWinner(player1, player2) {
     container.classList.add('btn-disable')
@@ -25,6 +28,11 @@ function displayWinner(player1, player2) {
 function playRound() {
     const playerSelection = this.value;
     const computerSelection = computerPlay();
+
+    /* If the current pushed button value is rock change the img source to rock */
+    computerImage.src = `images/${computerSelection}.png`
+    playerImage.src = `images/${this.value}.png`
+    
 
 
     if ( (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === 'scissors' && computerSelection === 'paper') )
